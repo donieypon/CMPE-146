@@ -1,0 +1,36 @@
+/**
+ * These arguments were used when this file was generated. They will be automatically applied on subsequent loads
+ * via the GUI or CLI. Run CLI with '--help' for additional information on how to override these arguments.
+ * @cliArgs --board "/ti/boards/MSP_EXP432P401R" --product "simplelink_msp432p4_sdk@3.40.01.02"
+ * @versions {"data":"2020052512","timestamp":"2020052512","tool":"1.5.0+1397","templates":"2020052512"}
+ */
+
+/**
+ * Import the modules used in this configuration.
+ */
+const Power = scripting.addModule("/ti/drivers/Power");
+const RTOS  = scripting.addModule("/ti/drivers/RTOS");
+const UART  = scripting.addModule("/ti/drivers/UART", {}, false);
+const UART1 = UART.addInstance();
+
+/**
+ * Write custom configuration values to the imported modules.
+ */
+Power.performanceLevel3.$name = "ti_drivers_power_PowerMSP432PerfLevels0";
+Power.performanceLevel2.$name = "ti_drivers_power_PowerMSP432PerfLevels1";
+Power.performanceLevel1.$name = "ti_drivers_power_PowerMSP432PerfLevels2";
+Power.performanceLevel0.$name = "ti_drivers_power_PowerMSP432PerfLevels3";
+
+
+UART1.$name     = "CONFIG_UART_0";
+UART1.$hardware = system.deviceData.board.components.XDS110UART;
+
+/**
+ * Pinmux solution for unlocked pins/peripherals. This ensures that minor changes to the automatic solver in a future
+ * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
+ * re-solve from scratch.
+ */
+RTOS.timer0.resource.$suggestSolution = "Timer_A0";
+UART1.uart.$suggestSolution           = "EUSCI_A0";
+UART1.uart.txPin.$suggestSolution     = "P1.3.GPIO/EUSCI_A0_UART.TXD/EUSCI_A0_SPI.SIMO";
+UART1.uart.rxPin.$suggestSolution     = "P1.2.GPIO/EUSCI_A0_UART.RXD/EUSCI_A0_SPI.SOMI";

@@ -1,0 +1,258 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.1                     
+******************************************************************************
+>> Linked Wed Sep  2 13:37:01 2020
+
+OUTPUT FILE NAME:   <gpio_toggle_output_MSP_EXP432P401R_nortos_ccs2_EX1.2.out>
+ENTRY POINT SYMBOL: "_c_int00_noinit_noargs"  address: 000001f9
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  MAIN                  00000000   00040000  00000292  0003fd6e  R  X
+  INFO                  00200000   00004000  00000000  00004000  R  X
+  SRAM_CODE             01000000   00010000  00000200  0000fe00  RW X
+  SRAM_DATA             20000000   00010000  00000200  0000fe00  RW  
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00000294   00000294    r-x
+  00000000    00000000    000000e4   000000e4    r-- .intvecs
+  000000e4    000000e4    0000017e   0000017e    r-x .text
+  00000264    00000264    00000030   00000030    r-- .const
+2000fe00    2000fe00    00000200   00000000    rw-
+  2000fe00    2000fe00    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    000000e4     
+                  00000000    000000e4     startup_msp432p401r_ccs.obj (.intvecs:retain)
+
+.text      0    000000e4    0000017e     
+                  000000e4    0000009c     gpio_toggle_output_.obj (.text:main)
+                  00000180    00000078     system_msp432p401r.obj (.text:SystemInit)
+                  000001f8    0000002c     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noinit_noargs:_c_int00_noinit_noargs)
+                  00000224    00000028     msp432p4xx_driverlib.lib : gpio.o (.text:GPIO_setOutputLowOnPin)
+                  0000024c    0000000c     startup_msp432p401r_ccs.obj (.text:Reset_Handler)
+                  00000258    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  0000025c    00000004                                   : exit.c.obj (.text:abort:abort)
+                  00000260    00000002     startup_msp432p401r_ccs.obj (.text:Default_Handler)
+
+.const     0    00000264    00000030     
+                  00000264    00000030     msp432p4xx_driverlib.lib : gpio.o (.const:GPIO_PORT_TO_BASE)
+
+.cinit     0    00000000    00000000     UNINITIALIZED
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.binit     0    00000000    00000000     
+
+.stack     0    2000fe00    00000200     UNINITIALIZED
+                  2000fe00    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  2000fe04    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                        code   ro data   rw data
+       ------                        ----   -------   -------
+    .\
+       gpio_toggle_output_.obj       156    0         0      
+       system_msp432p401r.obj        120    0         0      
+    +--+-----------------------------+------+---------+---------+
+       Total:                        276    0         0      
+                                                             
+    .\ccs\
+       startup_msp432p401r_ccs.obj   14     228       0      
+    +--+-----------------------------+------+---------+---------+
+       Total:                        14     228       0      
+                                                             
+    C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/ccs/msp432p4xx_driverlib.lib
+       gpio.o                        40     48        0      
+    +--+-----------------------------+------+---------+---------+
+       Total:                        40     48        0      
+                                                             
+    D:\ti\ccs1010\ccs\tools\compiler\ti-cgt-arm_20.2.1.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       boot_cortex_m.c.obj           44     0         0      
+       exit.c.obj                    4      0         0      
+       pre_init.c.obj                4      0         0      
+    +--+-----------------------------+------+---------+---------+
+       Total:                        52     0         0      
+                                                             
+       Stack:                        0      0         1024   
+    +--+-----------------------------+------+---------+---------+
+       Grand Total:                  382    276       1024   
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                   
+-------   ----                   
+00000261  ADC14_IRQHandler       
+00000261  AES256_IRQHandler      
+00000261  BusFault_Handler       
+0000025d  C$$EXIT                
+00000261  COMP_E0_IRQHandler     
+00000261  COMP_E1_IRQHandler     
+00000261  CS_IRQHandler          
+00000261  DMA_ERR_IRQHandler     
+00000261  DMA_INT0_IRQHandler    
+00000261  DMA_INT1_IRQHandler    
+00000261  DMA_INT2_IRQHandler    
+00000261  DMA_INT3_IRQHandler    
+00000261  DebugMon_Handler       
+00000261  Default_Handler        
+00000261  EUSCIA0_IRQHandler     
+00000261  EUSCIA1_IRQHandler     
+00000261  EUSCIA2_IRQHandler     
+00000261  EUSCIA3_IRQHandler     
+00000261  EUSCIB0_IRQHandler     
+00000261  EUSCIB1_IRQHandler     
+00000261  EUSCIB2_IRQHandler     
+00000261  EUSCIB3_IRQHandler     
+00000261  FLCTL_IRQHandler       
+00000261  FPU_IRQHandler         
+00000225  GPIO_setOutputLowOnPin 
+00000261  HardFault_Handler      
+00000261  MemManage_Handler      
+00000261  NMI_Handler            
+00000261  PCM_IRQHandler         
+00000261  PORT1_IRQHandler       
+00000261  PORT2_IRQHandler       
+00000261  PORT3_IRQHandler       
+00000261  PORT4_IRQHandler       
+00000261  PORT5_IRQHandler       
+00000261  PORT6_IRQHandler       
+00000261  PSS_IRQHandler         
+00000261  PendSV_Handler         
+00000261  RTC_C_IRQHandler       
+0000024d  Reset_Handler          
+00000261  SVC_Handler            
+00000261  SysTick_Handler        
+00000181  SystemInit             
+00000261  T32_INT1_IRQHandler    
+00000261  T32_INT2_IRQHandler    
+00000261  T32_INTC_IRQHandler    
+00000261  TA0_0_IRQHandler       
+00000261  TA0_N_IRQHandler       
+00000261  TA1_0_IRQHandler       
+00000261  TA1_N_IRQHandler       
+00000261  TA2_0_IRQHandler       
+00000261  TA2_N_IRQHandler       
+00000261  TA3_0_IRQHandler       
+00000261  TA3_N_IRQHandler       
+00000261  UsageFault_Handler     
+4000480c  WDTCTL_SYM             
+00000261  WDT_A_IRQHandler       
+20010000  __STACK_END            
+00000200  __STACK_SIZE           
+ffffffff  __TI_pprof_out_hndl    
+ffffffff  __TI_prof_data_size    
+ffffffff  __TI_prof_data_start   
+00000000  __TI_static_base__     
+ffffffff  __binit__              
+ffffffff  __c_args__             
+UNDEFED   __mpu_init             
+2000fe00  __stack                
+20000000  __start___llvm_prf_cnts
+20000000  __stop___llvm_prf_cnts 
+000001f9  _c_int00_noinit_noargs 
+00000259  _system_pre_init       
+0000025d  abort                  
+ffffffff  binit                  
+00000000  interruptVectors       
+000000e5  main                   
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                   
+-------   ----                   
+00000000  __TI_static_base__     
+00000000  interruptVectors       
+000000e5  main                   
+00000181  SystemInit             
+000001f9  _c_int00_noinit_noargs 
+00000200  __STACK_SIZE           
+00000225  GPIO_setOutputLowOnPin 
+0000024d  Reset_Handler          
+00000259  _system_pre_init       
+0000025d  C$$EXIT                
+0000025d  abort                  
+00000261  ADC14_IRQHandler       
+00000261  AES256_IRQHandler      
+00000261  BusFault_Handler       
+00000261  COMP_E0_IRQHandler     
+00000261  COMP_E1_IRQHandler     
+00000261  CS_IRQHandler          
+00000261  DMA_ERR_IRQHandler     
+00000261  DMA_INT0_IRQHandler    
+00000261  DMA_INT1_IRQHandler    
+00000261  DMA_INT2_IRQHandler    
+00000261  DMA_INT3_IRQHandler    
+00000261  DebugMon_Handler       
+00000261  Default_Handler        
+00000261  EUSCIA0_IRQHandler     
+00000261  EUSCIA1_IRQHandler     
+00000261  EUSCIA2_IRQHandler     
+00000261  EUSCIA3_IRQHandler     
+00000261  EUSCIB0_IRQHandler     
+00000261  EUSCIB1_IRQHandler     
+00000261  EUSCIB2_IRQHandler     
+00000261  EUSCIB3_IRQHandler     
+00000261  FLCTL_IRQHandler       
+00000261  FPU_IRQHandler         
+00000261  HardFault_Handler      
+00000261  MemManage_Handler      
+00000261  NMI_Handler            
+00000261  PCM_IRQHandler         
+00000261  PORT1_IRQHandler       
+00000261  PORT2_IRQHandler       
+00000261  PORT3_IRQHandler       
+00000261  PORT4_IRQHandler       
+00000261  PORT5_IRQHandler       
+00000261  PORT6_IRQHandler       
+00000261  PSS_IRQHandler         
+00000261  PendSV_Handler         
+00000261  RTC_C_IRQHandler       
+00000261  SVC_Handler            
+00000261  SysTick_Handler        
+00000261  T32_INT1_IRQHandler    
+00000261  T32_INT2_IRQHandler    
+00000261  T32_INTC_IRQHandler    
+00000261  TA0_0_IRQHandler       
+00000261  TA0_N_IRQHandler       
+00000261  TA1_0_IRQHandler       
+00000261  TA1_N_IRQHandler       
+00000261  TA2_0_IRQHandler       
+00000261  TA2_N_IRQHandler       
+00000261  TA3_0_IRQHandler       
+00000261  TA3_N_IRQHandler       
+00000261  UsageFault_Handler     
+00000261  WDT_A_IRQHandler       
+20000000  __start___llvm_prf_cnts
+20000000  __stop___llvm_prf_cnts 
+2000fe00  __stack                
+20010000  __STACK_END            
+4000480c  WDTCTL_SYM             
+ffffffff  __TI_pprof_out_hndl    
+ffffffff  __TI_prof_data_size    
+ffffffff  __TI_prof_data_start   
+ffffffff  __binit__              
+ffffffff  __c_args__             
+ffffffff  binit                  
+UNDEFED   __mpu_init             
+
+[74 symbols]
